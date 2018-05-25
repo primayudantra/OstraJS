@@ -8,8 +8,8 @@
 
 ### HOW TO RUN?
 ```
-$ git clone <this repo url>
-$ cd </project>
+$ git clone https://github.com/primayudantra/OstraJS/edit/mqtt/README.md
+$ cd OstraJS
 $ npm install
 $ npm run development 
 ```
@@ -85,13 +85,13 @@ var queue = kue.createQueue();
 
 class MQTT{
   constructor(){
-    this.client = mqtt.connect('mqtt://<broker-url/>');
+    this.client = mqtt.connect('mqtt://{broker-url}');
     this.message = '';
   }
 
   subscribe(){
     this.client.on('connect', () => {
-      this.client.subscribe('<mqtt-channel/>)
+      this.client.subscribe('{mqtt-channel})
     })
 
     this.handler();
@@ -102,7 +102,7 @@ class MQTT{
       var messages = message.toString();
       console.log(messages);
       try{
-        await queue.create('<redis-channel/>l', {payload}).save();  
+        await queue.create('{redis-channel}', {payload}).save();  
       }catch(e){
         console.log(e)
       }
@@ -113,7 +113,7 @@ class MQTT{
 
   async store_to_db(){
     var obj = {};
-    queue.process('<redis-channel/>l', 1, async (job, done)=>{
+    queue.process('{redis-channel}', 1, async (job, done)=>{
       
       obj = job.data;
       
