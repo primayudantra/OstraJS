@@ -11,6 +11,7 @@
 $ git clone https://github.com/primayudantra/OstraJS/edit/mqtt/README.md
 $ cd OstraJS
 $ npm install
+$ npm install -g nodemon
 $ npm run development 
 ```
 **Dont Forget Start Your redis-server And psql server**
