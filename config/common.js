@@ -2,27 +2,51 @@ const ENV = process.env.NODE_ENV;
 
  const Config = {
      DEV:{
-       debug: true,
+        debug: true,
 
-       host: '0.0.0.0',
-       port: 9900,
+        host: '0.0.0.0',
+        port: 9900,
 
-       bodyParser:{
+        bodyParser:{
            extended: false,
            limit: '20mb'
-       },
+        },
+
+        database:{
+            psql: {
+                client: 'pg',
+                connection: {
+                    host : 'localhost',
+                    user : 'primayudantra',
+                    password : '',
+                    database : 'postgre_test'
+                }
+            }
+       }
      },
-     STAGING:{
-       debug: true,
+    STAGING:{
+        debug: true,
 
-       host: '0.0.0.0',
-       port: 9901,
+        host: '0.0.0.0',
+        port: 9900,
 
-       bodyParser:{
+        bodyParser:{
            extended: false,
            limit: '20mb'
-       },
-     }
+        },
+
+        database:{
+            psql: {
+                client: 'pg',
+                connection: {
+                    host : '127.0.0.1',
+                    user : 'primayudantra',
+                    password : '',
+                    database : 'postgre_test'
+                }
+            }
+       }
+     },
  }
 
 module.exports = Config[ENV];

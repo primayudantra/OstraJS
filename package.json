@@ -7,6 +7,13 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-request-logger": "^0.0.3",
+    "knex": "^0.14.4",
+    "kue": "^0.11.6",
+    "mqtt": "^2.18.0",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.3",
+    "pg": "^7.4.3",
+    "redis": "^2.8.0",
     "winston": "^2.4.0"
   },
   "name": "OstraJS",
@@ -14,9 +21,15 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "NODE_ENV=DEV nodemon index.js"
   },
-  "keywords": ["nodejs","expressjs","boilerplate","skeleton"],
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "boilerplate",
+    "skeleton"
+  ],
   "author": "Prima Yudantra <prima.yudantra@gmail.com>",
   "license": "ISC",
   "description": "Ostra JS is a boilerplate for you to create web service, API Service using Node, Express and etc"

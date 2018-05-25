@@ -6,10 +6,10 @@ import bodyParser from 'body-parser';
 import Common from '../config/common'
 
 // Initial Modules
-import InitializeModules from './initialize'
-import Logger from './logger'
-
-console.log(Logger.Logger)
+import InitializeModules from './initialize';
+import Logger from './logger';
+import Database from './database';
+import MQTT from '../services/mqtt'
 
 class Express{
   constructor(){
@@ -31,6 +31,9 @@ class Express{
   _serverRunning(){
     Logger.init(this.app)
     InitializeModules.init(this.app)
+    // Database.init();
+    MQTT.subscribe();
+
     this.app.listen(Common.port)
 
     console.log(`
