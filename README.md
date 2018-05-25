@@ -8,7 +8,7 @@
 
 ### HOW TO RUN?
 ```
-$ git clone https://github.com/primayudantra/OstraJS/edit/mqtt/README.md
+$ git clone https://github.com/primayudantra/OstraJS
 $ cd OstraJS
 $ npm install
 $ npm install -g nodemon
