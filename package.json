@@ -22,7 +22,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "NODE_ENV=DEV nodemon index.js"
+    "development" : "NODE_ENV=DEV nodemon index.js"
   },
   "keywords": [
     "nodejs",
