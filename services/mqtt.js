@@ -1,16 +1,15 @@
+import Database from '../utils/database';
 import mqtt from 'mqtt';
 import kue from 'kue';
 
+var DB = Database.db;
+
 var queue = kue.createQueue();
-
-var knex = require('../utils/database');
-
 
 class MQTT{
 	constructor(){
 		this.client = mqtt.connect('mqtt://broker.hivemq.com');
 		this.message = '';
-		this.knex = knex;
 	}
 
 	subscribe(){
@@ -41,10 +40,9 @@ class MQTT{
 		queue.process('channel', 1, async (job, done)=>{
 			
 			obj = job.data;
-			obj['created_at'] = knex.fn.now();
-			// console.log(obj)
-			var x = await knex("channel_test").insert(obj).returning('*').toString();
-			// console.log(x)
+
+			const query = `INSERT INTO channel_test(channel_name, channel_content, created_at) values('${obj.channel_name}', '${obj.channel_content}', CURRENT_TIMESTAMP)`;
+			await DB.query(query);
 		})
 	}	
 }

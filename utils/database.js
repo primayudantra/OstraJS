@@ -1,10 +1,20 @@
-import Common from '../config/common'
+import Sequelize from 'sequelize';
+import Common from '../config/common';
 
-var knex = require('knex')({
-		client: 'pg',
-	    connection: "postgres://localhost/postgre_test",
-		searchPath: ['knex', 'public']
+class Database{
+  constructor() {
+    this.db = {}
 
-});
+    this.__init();
+  }
 
-module.exports = knex;
+  __init(){
+    this.db = new Sequelize(Common.database.dbName,Common.database.username,Common.database.password,{ host:Common.database.host,dialect: 'postgres'})
+  }
+
+  getDBConnection () {
+    return this.sequelize;
+  }
+}
+
+module.exports = new Database()

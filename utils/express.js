@@ -28,10 +28,12 @@ class Express{
   }
 
 
-  _serverRunning(){
+  async _serverRunning(){
     Logger.init(this.app)
     InitializeModules.init(this.app)
-    // Database.init();
+
+    Database.__init();
+
     MQTT.subscribe();
 
     this.app.listen(Common.port)

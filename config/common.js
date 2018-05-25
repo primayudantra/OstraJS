@@ -13,16 +13,11 @@ const ENV = process.env.NODE_ENV;
         },
 
         database:{
-            psql: {
-                client: 'pg',
-                connection: {
-                    host : 'localhost',
-                    user : 'primayudantra',
-                    password : '',
-                    database : 'postgre_test'
-                }
-            }
-       }
+         host:'localhost',
+         username:'primayudantra',
+         password:'',
+         dbName:'postgre_test'
+       },
      },
     STAGING:{
         debug: true,
