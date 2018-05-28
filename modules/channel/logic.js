@@ -1,9 +1,8 @@
 import repository from './repository';
 
 class Logic{
-  logicDataUsers(req,res,next){
-    req.userId = "prima yudantra";
-    next();
+  logic_get_data(req,res,next){
+    repository.repo_get_data(req,res)
   }
 }
 

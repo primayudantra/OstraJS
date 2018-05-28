@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Test</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap-grid.css" />
+</head>
+<body>
+	<div class="stream_data_channel"></div>
+</body>
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+
+ <script type="text/javascript" charset="utf-8">
+ 	var arr = [];
+	var html = "";
+	var id_temp = 0;
+ 	setInterval(ajax, 1000);
+
+ 	function ajax(){
+		$.ajax({url: "/get_channel_name", success: function(result){
+
+			if(id_temp !== result.id){
+				arr.push(result);
+				arr.map((item,k)=>{
+					html += `<span>${item.channel_name} | ${item.channel_content}</span><br/>`
+				})
+				id_temp = result.id;
+			}
+			$( "div.stream_data_channel" ).html(html);
+		}});
+ 	}
+ </script>
+</html>

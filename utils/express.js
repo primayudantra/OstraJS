@@ -18,6 +18,8 @@ class Express{
   }
   _init(){
     this.app = express();
+    this.app.set('views', './views')
+    this.app.set('view engine', 'ejs')
     this._bodyParser()
   }
 

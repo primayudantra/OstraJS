@@ -1,11 +1,9 @@
-import Users from "../modules/users/"
-import Profiles from "../modules/profiles/"
+import Channel from "../modules/channel/"
 // Put your modules here
 
 class InitializeModules{
   init(app){
-    Users.init(app);
-    Profiles.init(app);
+    Channel.init(app);
   }
 }
 
