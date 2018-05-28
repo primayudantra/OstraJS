@@ -1,10 +1,11 @@
 import Database from '../utils/database';
+import Common from '../config/common'
 import mqtt from 'mqtt';
 import kue from 'kue';
 
 var DB = Database.db;
 
-var queue = kue.createQueue();
+var queue = kue.createQueue(Common.redis);
 
 class MQTT{
 	constructor(){
