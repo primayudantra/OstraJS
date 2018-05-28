@@ -18,7 +18,16 @@ const ENV = process.env.NODE_ENV;
          password:'',
          dbName:'postgre_test'
        },
-     },
+
+       redis:{
+          prefix: 'q',
+          redis: {
+            port: 6379,
+            host: '127.0.0.1',
+            auth: '',
+          }
+        }
+    },
     STAGING:{
         debug: true,
 
@@ -31,17 +40,21 @@ const ENV = process.env.NODE_ENV;
         },
 
         database:{
-            psql: {
-                client: 'pg',
-                connection: {
-                    host : '127.0.0.1',
-                    user : 'primayudantra',
-                    password : '',
-                    database : 'postgre_test'
-                }
+            host:'localhost',
+            username:'primayudantra',
+            password:'',
+            dbName:'postgre_test'
+        },
+
+        redis:{
+            prefix: 'q',
+            redis: {
+                port: 6379,
+                host: '127.0.0.1',
+                auth: '',
             }
-       }
-     },
- }
+        }
+    },
+}
 
 module.exports = Config[ENV];
